@@ -22,5 +22,12 @@ def Merge(left,right,array):
             j=j+1
             k=k+1
             
+   while (i<len(left)):
+       array[k] = left[i]
+       i=i+1
+       k=k+1
+        
+        
+            
         
         
