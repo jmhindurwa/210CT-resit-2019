@@ -13,3 +13,10 @@ def Merge(left,right,array):
         MergeSort(right)
         i=j=k=0
         
+    while (i<len(left) and j<len(right)):
+        if left[i] < right[j]:
+            array[k] = left[j]
+            i=i+1
+            
+        
+        
