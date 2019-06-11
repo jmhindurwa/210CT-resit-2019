@@ -1,40 +1,54 @@
-#Implement Merge Sort and explain its performance using the Big O notation.
-
-def MergeSort(array):
-
-    if len(array)>1:
-        left = array[:middle]
-        middle = len(array)//2
-        right = array[middle:]
-
-#Code to combine subarrays
-def Merge(left,right,array):
-        MergeSort(left)
-        MergeSort(right)
-        i=j=k=0
-        
-    while (i<len(left) and j<len(right)):
-        if left[i] < right[j]:
-            array[k] = left[j]
-            i=i+1
-        else:
-            array[k] = right[j]
-            j=j+1
-            k=k+1
-            
-   while (i<len(left)):
-       array[k] = left[i]
-       i=i+1
-       k=k+1
+list = [9,8,7,6,5,4,3,2,1,0]
+#function for merging two sub-arrays
+def Merge(left, right, list):
+  a = 0
+  b = 0
+  c = 0
+#a ,b and c = left, right and list 
+ 
+  while (a<len(left) and b<len(right)):
+    if(left[i]<right[b]):
+      list[c] = left[a]
+      a = a+1
+    else:
+      list[c] = right[b]
+      b = b+1
+      c = c+1
+  
+  while(a<len(left)):
+    list[c] = left[a]
+    a = a+1
+    c = c+1
+  
+  while(b<len(right)):
+    list[c] = right[b]
+    b = b+1
+    c = c+1
     
-         
-   while (j<len(right)):
-      array[k] = right[j]
-      j=j+1
-      k=k+1
-              
-        
-        
-            
-        
-        
+#divide and use merge function 
+def Merge_Sort(list):
+  n = len(list)
+  if(n<2):
+    return
+ 
+  mid = n/2
+  left = []
+  right = []
+  
+  for a in range(mid):
+    number = list[a]
+    left.append(number)  
+   
+  for a in range(mid,n):
+    number = list[a]
+    right.append(number)
+ 
+  Merge_Sort(left)
+  Merge_Sort(right)
+
+  Merge(left,right,list)
+  
+#call mergesort
+  Merge_Sort(list)
+for a in list:
+  print a,
