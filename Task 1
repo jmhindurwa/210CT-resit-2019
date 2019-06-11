@@ -1,1 +1,15 @@
 #Implement Merge Sort and explain its performance using the Big O notation.
+
+def MergeSort(array):
+
+    if len(array)>1:
+        left = array[:middle]
+        middle = len(array)//2
+        right = array[middle:]
+
+#Code to combine subarrays
+def Merge(left,right,array):
+        MergeSort(left)
+        MergeSort(right)
+        i=j=k=0
+        
