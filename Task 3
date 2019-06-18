@@ -66,11 +66,24 @@ class List(object):
             else:
                 print("item not found")
 
+#function to find and middle element
+          def middle(self):
+              y = self.head
+              z = self.head
+
+              if self.head != None:
+                  while z != None and z != None:
+                      z = z.next.next
+                      y = y.next
+                  return y.value
+
+
 
 if __name__ == '__main__':
       l=List()
-      #l.insert(None, Node(4))
+      l.insert(None, Node(4))
       l.insert(l.head,Node(6))
       l.insert(l.head,Node(8))
       l.delete(6)
       l.display()
+      #print(l.middle())
