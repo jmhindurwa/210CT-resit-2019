@@ -30,20 +30,47 @@ class List(object):
               values.append(str(n.value))
               n=n.next
           print ("List: ",",".join(values))
+#Delete function 
       def delete(self, x):
-         if self.head==None:
-          print ("Nothing to delete")
-            return 
+#check if list is empty
+          if self.head==None:
+              print ("Nothing to delete")
+              return
+            
+#check if item to delete is even present 
           if self.head.next == None:
             if self.head.value == x:
                 self.head = None
             else:
-                print("Object is not in List")
+                print("item is not in List")
             return
-         
+            if self.head.value == x:    
+                self.head = self.head.next
+            self.head.prev = None
+            return
+            if self.head.value == x:    
+                self.head = self.head.next
+            self.head.prev = None
+            return
+
+            n = self.head
+            while n.next is not None:
+                if n.value == x:
+                    break;
+            n = n.next
+            if n.next is not None:
+                n.prev.next = n.next
+            n.next.prev = n.prev
+            if n.value == x:
+                    n.prev.next = None
+            else:
+                print("item not found")
+
+
 if __name__ == '__main__':
       l=List()
-      l.insert(None, Node(4))
+      #l.insert(None, Node(4))
       l.insert(l.head,Node(6))
       l.insert(l.head,Node(8))
+      l.delete(6)
       l.display()
