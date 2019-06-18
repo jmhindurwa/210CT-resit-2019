@@ -30,6 +30,10 @@ class List(object):
               values.append(str(n.value))
               n=n.next
           print ("List: ",",".join(values))
+      def delete(self, x):
+         if self.head==None:
+          print ("Nothing to delete")
+            return 
          
 if __name__ == '__main__':
       l=List()
