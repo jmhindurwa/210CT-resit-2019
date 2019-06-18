@@ -51,4 +51,4 @@ def Merge_Sort(list):
 #call mergesort
   Merge_Sort(list)
 for a in list:
-  print a,
+  print (a),
