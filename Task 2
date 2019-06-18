@@ -34,6 +34,12 @@ class List(object):
          if self.head==None:
           print ("Nothing to delete")
             return 
+          if self.head.next == None:
+            if self.head.value == x:
+                self.head = None
+            else:
+                print("Object is not in List")
+            return
          
 if __name__ == '__main__':
       l=List()
