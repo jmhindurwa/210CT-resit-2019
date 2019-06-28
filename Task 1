@@ -1,5 +1,7 @@
 def Merge_Sort(lst):
+#If the list has less than 2 elements it cannot be sorted
     if len(lst) >1: 
+#Finds the middle element and uses it as a pivot to split list into 2
 	    Middle = len(lst)//2 
 	    Left = lst[:Middle] 
 	    Right = lst[Middle:] 
@@ -9,6 +11,7 @@ def Merge_Sort(lst):
 
 	    a = b = c = 0
  
+ #Creates a temporay list to store the sorted elements
 	    while a < len(Left) and b < len(Right): 
 		    if Left[a] < Right[b]: 
 			    lst[c] = Left[a] 
@@ -27,12 +30,14 @@ def Merge_Sort(lst):
 		    lst[c] = Right[b] 
 		    b+=1
 		    c+=1
-        
+		 
+#function for printing the list
 def Print_Lst(lst): 
 	for a in range(len(lst)):		 
 		print(lst[a],end=" ") 
 	print()     
 
+# Insert unsorted elements into list and prints sorted list 
 if __name__ == '__main__': 
 	lst = [4, 3, 6, 2, 1, 5, 8, 9, 7] 
 	print ("Original ", end="\n") 
@@ -40,3 +45,4 @@ if __name__ == '__main__':
 	Merge_Sort(lst) 
 	print("Merge Sort ", end="\n") 
 	Print_Lst(lst) 
+# preformance is O(nlogn)
