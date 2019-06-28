@@ -1,54 +1,49 @@
-list = [9,8,7,6,5,4,3,2,1,0]
-#function for merging two sub-arrays
-def Merge(left, right, list):
-  a = 0
-  b = 0
-  c = 0
-#a ,b and c = left, right and list 
- 
-  while (a<len(left) and b<len(right)):
-    if(left[i]<right[b]):
-      list[c] = left[a]
-      a = a+1
-    else:
-      list[c] = right[b]
-      b = b+1
-      c = c+1
-  
-  while(a<len(left)):
-    list[c] = left[a]
-    a = a+1
-    c = c+1
-  
-  while(b<len(right)):
-    list[c] = right[b]
-    b = b+1
-    c = c+1
-    
-#divide and use merge function 
-def Merge_Sort(list):
-  n = len(list)
-  if(n<2):
-    return
- 
-  mid = n/2
-  left = []
-  right = []
-  
-  for a in range(mid):
-    number = list[a]
-    left.append(number)  
-   
-  for a in range(mid,n):
-    number = list[a]
-    right.append(number)
- 
-  Merge_Sort(left)
-  Merge_Sort(right)
+def Merge_Sort(lst):
+#If the list has less than 2 elements it cannot be sorted
+    if len(lst) >1: 
+#Finds the middle element and uses it as a pivot to split list into 2
+	    Middle = len(lst)//2 
+	    Left = lst[:Middle] 
+	    Right = lst[Middle:] 
 
-  Merge(left,right,list)
-  
-#call mergesort
-  Merge_Sort(list)
-for a in list:
-  print (a),
+	    Merge_Sort(Left) 
+	    Merge_Sort(Right) 
+
+	    a = b = c = 0
+		
+#Creates a temporay list to store the sorted elements 
+	    while a < len(Left) and b < len(Right): 
+		    if Left[a] < Right[b]: 
+			    lst[c] = Left[a] 
+			    a+=1
+		    else: 
+			    lst[c] = Right[b] 
+			    b+=1
+		    c+=1
+		 
+	    while a < len(Left): 
+		    lst[c] = Left[a] 
+		    a+=1
+		    c+=1
+		
+	    while b < len(Right): 
+		    lst[c] = Right[b] 
+		    b+=1
+		    c+=1
+
+#function for printing the list 
+def Print_Lst(lst): 
+	for a in range(len(lst)):		 
+		print(lst[a],end=" ") 
+	print() 
+
+# Insert unsorted elements into list and prints sorted list 
+if __name__ == '__main__': 
+	lst = [4, 3, 6, 2, 1, 5, 8, 9, 7] 
+	print ("Original ", end="\n") 
+	Print_Lst(lst) 
+	Merge_Sort(lst) 
+	print("Merge Sort ", end="\n") 
+	Print_Lst(lst) 
+
+# preformance is O(nlogn)
