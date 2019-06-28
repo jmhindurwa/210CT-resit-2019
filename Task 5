@@ -19,7 +19,7 @@ class Graph(object):
         return self.__make_edges()
 
 
-#function to add a new vertex and edge 
+#function to add a new node and edge 
     def insert_node(self, node):
 
         if node not in self.__graph_dict:
